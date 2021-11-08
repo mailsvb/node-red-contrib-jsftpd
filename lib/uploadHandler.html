@@ -14,18 +14,21 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="jsftpd-upload">
-    <p>Subscribe to different generic events via the Circuit API</p>
-    <p>The following Events are available
+<script type="text/html" data-help-name="jsftpd-upload">
+    <p>Receive files via FTP upload. This method will fire events on every file upload.</p>
+    <p>The following data will be available within msg.payload:</p>
     <ul>
-        <li><code>Call Events</code> callStatus, callIncoming, callEnding</li>
-        <li><code>Conversation Events</code> conversationUpdated, conversationCreated</li>
-        <li><code>Item Events</code> itemUpdated, itemAdded</li>
-        <li><code>User Events</code> userSettingsChanged, userUpdated</li>
+        <li><code>user</code> FTP user that uploaded the file</li>
+        <li><code>path</code> The relative path on the FTP server</li>
+        <li><code>filename</code> The filename that is being uploaded</li>
+        <li><code>content</code> The file content as Buffer</li>
+        <li><code>offset</code> The offset for the file content. Usually 0, can be > 0 when file transfer was restarted</li>
     </ul>
-    You can check details about events on <a href="https://circuitsandbox.net/sdk/classes/Client.html#events" target="_blank">https://circuitsandbox.net/sdk</a>
-    </p>
-    <p>The output will be available as object within msg.payload</p>
+    <p>If selected to get the output as Nodemailer attachment, msg.payload will be an Array of Objects with only the following content within the Object:</p>
+    <ul>
+        <li><code>filename</code> The filename that is being uploaded</li>
+        <li><code>content</code> The file content as Buffer</li>
+    </ul>
 </script>
 
 
