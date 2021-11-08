@@ -1,0 +1,47 @@
+<script type="text/html" data-template-name="jsftpd-upload">
+    <div class="form-row" id="websocket-server-row">
+        <label for="node-input-server"><i class="fa fa-server"></i> Server</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-label"><i class="icon-bookmark"></i> Label</label>
+        <input type="text" id="node-input-label">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="jsftpd-upload">
+    <p>Subscribe to different generic events via the Circuit API</p>
+    <p>The following Events are available
+    <ul>
+        <li><code>Call Events</code> callStatus, callIncoming, callEnding</li>
+        <li><code>Conversation Events</code> conversationUpdated, conversationCreated</li>
+        <li><code>Item Events</code> itemUpdated, itemAdded</li>
+        <li><code>User Events</code> userSettingsChanged, userUpdated</li>
+    </ul>
+    You can check details about events on <a href="https://circuitsandbox.net/sdk/classes/Client.html#events" target="_blank">https://circuitsandbox.net/sdk</a>
+    </p>
+    <p>The output will be available as object within msg.payload</p>
+</script>
+
+
+<script type="text/javascript">
+(function() {
+    RED.nodes.registerType('jsftpd-upload', {
+        defaults: {
+            server: {type: 'jsftpd-server'},
+            label: {value: '', required: false},
+        },
+        category: 'network',
+        color:"rgb(231, 231, 174)",
+        icon: "white-globe.svg",
+        inputs: 0,
+        outputs: 1,
+        label: function() {
+            return this.label || 'FTP upload handler';
+        },
+        labelStyle: function() {
+            return this.label ? 'node_label_italic' : '';
+        }
+    });
+})();
+</script>

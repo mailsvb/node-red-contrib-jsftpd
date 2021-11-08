@@ -1,0 +1,26 @@
+{
+    "name": "node-red-contrib-jsftpd",
+    "description": "node-red ftp server extension",
+    "author": {
+        "name": "Sven, mailsvb@gmail.com"
+    },
+    "dependencies": {
+        "jsftpd": "*"
+    },
+    "devDependencies": {
+    },
+    "keywords": [
+        "node-red",
+        "ftp",
+        "ftpd",
+        "jsftpd"
+    ],
+    "node-red": {
+        "nodes": {
+            "jsftpd-server": "lib/ftpd.js",
+            "jsftpd-upload": "lib/uploadHandler.js"
+        }
+    },
+    "scripts": {},
+    "version": "1.0.0"
+}

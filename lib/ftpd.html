@@ -1,0 +1,40 @@
+<script type="text/html" data-template-name="jsftpd-server">
+    <div class="form-row">
+        <label for="node-config-input-port" style="width: 25%"><i class="icon-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port" style="width: 70%;">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username" style="width: 25%"><i class="icon-bookmark"></i> Username</label>
+        <input type="text" id="node-config-input-username" placeholder="user" style="width: 70%;">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password" style="width: 25%"><i class="icon-bookmark"></i> Password</label>
+        <input type="password" id="node-config-input-password" style="width: 70%;">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-name" style="width: 25%"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-config-input-name" style="width: 70%;">
+    </div>
+</script>
+
+<script type="text/javascript">
+(function() {
+    RED.nodes.registerType("jsftpd-server", {
+        category: "config",
+        defaults: {
+            port: {value: 21},
+            username: {value: ""},
+            name: {value: ""},
+        },
+        credentials: {
+            password: {type:"text"}
+        },
+        label: function() {
+            return this.name || "jsftpd-server " + this.port;
+        },
+        labelStyle: function() {
+            return this.name ? "node_label_italic":"";
+        },
+    });
+})();
+</script>
